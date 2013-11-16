@@ -1,0 +1,26 @@
+{
+  "name": "nodediff",
+  "version": "1.0.2",
+  "description": "Nodejs版本的文件diff工具",
+  "main": "index.js",
+  "dependencies": {
+    "bufferhelper": "~0.2.0",
+    "colors": "~0.6.2",
+    "iconv-lite": "~0.2.11",
+    "diff": "~1.0.7",
+    "async": "~0.2.6"
+  },
+  "bin" : {
+    "nodediff" :"index.js"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "jsdiff", "nodediff", "file diff", "diff"
+  ],
+  "author": "supersha",
+  "email" : "supersha@foxmail.com",
+  "license": "BSD-2-Clause"
+}
