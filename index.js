@@ -18,7 +18,7 @@ var srcFile = args[0],
 	desFile = args[1];
 
 
-if(!srcFile || !desFile){ console.log("参数不足."); process.exit(1); }
+if(!srcFile || !desFile){ console.log("Parameters can not be empty. \nExample command: nodediff file1 file2. \nYou can access the \"https://github.com/supersha/nodediff\" for more detail."); process.exit(1); }
 
 
 function handleDiff(src, des){
