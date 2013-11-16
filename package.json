@@ -1,6 +1,6 @@
 {
   "name": "nodediff",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Nodejs版本的文件diff工具",
   "main": "index.js",
   "dependencies": {
