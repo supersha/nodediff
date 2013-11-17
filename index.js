@@ -25,7 +25,9 @@ function handleDiff(src, des){
 	var diffResult = "",
 		diff = JsDiff.diffLines(src, des),
 		lineNumber = 0,
-		bk = [];
+		bk = [],
+		tmpData = [],
+		cache = {};
 
 	diff.forEach(function(part){
 		var color = part.added ? 'green' :  part.removed ? 'red' : 'grey';
@@ -33,9 +35,32 @@ function handleDiff(src, des){
 		var arr = part.value.split(/^/m);
 
 		arr.forEach(function(item){
-			if(!item){ bk.push(((++lineNumber) + " ")[color]); return; }
-			bk.push(((++lineNumber) + " " + (part.added ? "+ " : "") + (part.removed ? "- " : "") + item)[color]);
+			var line = ++lineNumber;
+			tmpData.push({
+				modify : part.added || part.removed || false,
+				code : !item ? (line + " ")[color] : (line + " " + (part.added ? "+ " : "") + (part.removed ? "- " : "") + item)[color]
+			});
 		});
+	});
+
+	tmpData.forEach(function(item, index){
+		var it = null;
+		//如果是有added/removed的，则输出上下附近两行的代码
+		if(item.modify){
+			for(var i = index - 2; i < index + 3; i++){
+				it = tmpData[i];
+
+				//处理连续两项都modify的情况
+				if(it.modify && i == index + 1){ return; }
+
+				if(it && !it.modify || (i === index)){
+					if(cache[it.code]) { continue; }
+					bk.push(it.code);
+					cache[it.code] = true;
+				}
+			}
+			bk.push("...\n"['grey']);
+		}
 	});
 
 	diffResult = bk.join('');

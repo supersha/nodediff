@@ -1,6 +1,6 @@
 {
   "name": "nodediff",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Nodejs版本的文件diff工具",
   "main": "index.js",
   "dependencies": {
@@ -20,6 +20,10 @@
   "keywords": [
     "jsdiff", "nodediff", "file diff", "diff"
   ],
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/supersha/nodediff.git"
+  },
   "author": "supersha",
   "email" : "supersha@foxmail.com",
   "license": "BSD-2-Clause"

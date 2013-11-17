@@ -4,8 +4,8 @@ var iconv = require("iconv-lite"),
     querystring = require("querystring"),
     url = require("url");
 
-var charsetMetaReg = /<meta.*charset=['"]?([^'">\s]+)['"].*>/;
-
+//var charsetMetaReg = /<meta.*charset=['"]?([^'">\s]+)['"].*>/;
+function test(){};
 exports.Util = {
     getPassport: function (req, res) {
         var passport = {};
@@ -34,6 +34,9 @@ exports.Util = {
             str += chars[Math.floor(Math.random() * chars.length)];
         }
         return str;
+    },
+    getTIme : function(d){
+        return d;
     },
     getDateTime: function (d) {
         var date = d ? (new Date(d)) : (new Date());
